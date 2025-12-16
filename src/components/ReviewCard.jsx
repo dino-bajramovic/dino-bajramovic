@@ -7,15 +7,19 @@
 import PropTypes from 'prop-types';
 
 const ReviewCard = ({ cert }) => {
+  const avifSrc = encodeURI(cert.imgSrc.replace(/\.(png|jpg)$/i, '.avif'));
+  const webpSrc = encodeURI(cert.imgSrc.replace(/\.(png|jpg)$/i, '.webp'));
+  const baseSrc = encodeURI(cert.imgSrc);
+
   return (
     <div className="bg-zinc-800 p-5 rounded-xl min-w-[320px] flex flex-col lg:min-w-[420px]">
 
       <figure className="img-box rounded-xl overflow-hidden mb-4 bg-gradient-to-br from-zinc-900 via-slate-800 to-zinc-900 h-48 flex items-center justify-center ring-1 ring-white/5">
         <picture className="h-full w-full">
-          <source srcSet={cert.imgSrc.replace(/\.(png|jpg)$/i, '.avif')} type="image/avif" />
-          <source srcSet={cert.imgSrc.replace(/\.(png|jpg)$/i, '.webp')} type="image/webp" />
+          <source srcSet={avifSrc} type="image/avif" />
+          <source srcSet={webpSrc} type="image/webp" />
           <img
-            src={cert.imgSrc}
+            src={baseSrc}
             alt={cert.title}
             loading="lazy"
             decoding="async"

@@ -19,6 +19,8 @@ const ProjectCard = ({
   style
 }) => {
   const CardWrapper = projectLink ? 'a' : 'div';
+  const avifSrc = imgSrc.endsWith('.jpg') ? imgSrc.replace('.jpg', '.avif') : imgSrc.replace('.png', '.avif');
+  const webpSrc = imgSrc.endsWith('.jpg') ? imgSrc.replace('.jpg', '.webp') : imgSrc.replace('.png', '.webp');
 
   return (
     <CardWrapper
@@ -31,10 +33,10 @@ const ProjectCard = ({
 
       <figure className="img-box aspect-square rounded-lg mb-4">
         <picture>
-          <source srcSet={`${imgSrc.replace('.jpg', '.avif')}`} type="image/avif" />
-          <source srcSet={`${imgSrc.replace('.jpg', '.webp')}`} type="image/webp" />
+          <source srcSet={encodeURI(avifSrc)} type="image/avif" />
+          <source srcSet={encodeURI(webpSrc)} type="image/webp" />
           <img
-            src={imgSrc}
+            src={encodeURI(imgSrc)}
             alt={title}
             loading="lazy"
             decoding="async"

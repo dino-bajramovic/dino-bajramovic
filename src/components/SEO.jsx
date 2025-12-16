@@ -1,7 +1,7 @@
 /**
  * SEO meta tags for the portfolio.
  */
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 const rawSiteUrl = import.meta.env.VITE_SITE_URL || 'https://dino-bajramovic-3.onrender.com';
 const siteUrl = rawSiteUrl.replace(/\/$/, '');
