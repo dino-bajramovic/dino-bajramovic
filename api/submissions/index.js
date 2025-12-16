@@ -1,7 +1,7 @@
 import { getDb } from '../_db.js';
 
 const COLLECTION = 'submissions';
-const ALLOWED_ORIGINS = ['https://www.dinobajramovic.com'];
+const ALLOWED_ORIGINS = ['https://www.dinobajramovic.com', 'https://dinobajramovic.com'];
 
 function applyCors(req, res) {
   const origin = req.headers.origin;

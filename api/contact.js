@@ -2,7 +2,7 @@ import { getDb } from './_db.js';
 
 const COLLECTION = 'submissions';
 const MAX_MESSAGE = 1000;
-const ALLOWED_ORIGINS = ['https://www.dinobajramovic.com'];
+const ALLOWED_ORIGINS = ['https://www.dinobajramovic.com', 'https://dinobajramovic.com'];
 
 const parseBody = (req) => {
   if (!req.body) return {};
