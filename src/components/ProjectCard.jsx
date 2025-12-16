@@ -30,15 +30,18 @@ const ProjectCard = ({
     >
 
       <figure className="img-box aspect-square rounded-lg mb-4">
-        <img
-          src={imgSrc}
-          alt={title}
-          loading="lazy"
-          decoding="async"
-          srcSet={`${imgSrc} 1x`}
-          sizes="(max-width: 768px) 100vw, 320px"
-          className="img-cover"
-        />
+        <picture>
+          <source srcSet={`${imgSrc.replace('.jpg', '.avif')}`} type="image/avif" />
+          <source srcSet={`${imgSrc.replace('.jpg', '.webp')}`} type="image/webp" />
+          <img
+            src={imgSrc}
+            alt={title}
+            loading="lazy"
+            decoding="async"
+            sizes="(max-width: 768px) 100vw, 320px"
+            className="img-cover"
+          />
+        </picture>
       </figure>
 
       <div className="flex items-center justify-between gap-4">

@@ -65,17 +65,20 @@ const Hero = () => {
 
         <div className="hidden lg:block">
           <figure className="w-full max-w-[480px] ml-auto bg-gradient-to-t from-sky-400 via-25% via-sky-400/40 to-65% rounded-[60px] overflow-hidden">
-            <img
-              src="/images/hero-banner.jpg"
-              width={656}
-              height={800}
-              alt="Hero illustration for Dino Bajramovic portfolio"
-              className="w-full"
-              fetchpriority="high"
-              decoding="async"
-              srcSet="/images/hero-banner.jpg 1x"
-              sizes="(max-width: 1024px) 90vw, 480px"
-            />
+            <picture>
+              <source srcSet="/images/hero-banner.avif" type="image/avif" />
+              <source srcSet="/images/hero-banner.webp" type="image/webp" />
+              <img
+                src="/images/hero-banner.jpg"
+                width={656}
+                height={800}
+                alt="Hero illustration for Dino Bajramovic portfolio"
+                className="w-full"
+                fetchpriority="high"
+                decoding="async"
+                sizes="(max-width: 1024px) 90vw, 480px"
+              />
+            </picture>
           </figure>
         </div>
 

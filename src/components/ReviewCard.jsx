@@ -11,15 +11,18 @@ const ReviewCard = ({ cert }) => {
     <div className="bg-zinc-800 p-5 rounded-xl min-w-[320px] flex flex-col lg:min-w-[420px]">
 
       <figure className="img-box rounded-xl overflow-hidden mb-4 bg-gradient-to-br from-zinc-900 via-slate-800 to-zinc-900 h-48 flex items-center justify-center ring-1 ring-white/5">
-        <img
-          src={cert.imgSrc}
-          alt={cert.title}
-          loading="lazy"
-          decoding="async"
-          srcSet={`${cert.imgSrc} 1x`}
-          sizes="(max-width: 1024px) 90vw, 420px"
-          className="h-full w-auto object-contain"
-        />
+        <picture className="h-full w-full">
+          <source srcSet={cert.imgSrc.replace(/\.(png|jpg)$/i, '.avif')} type="image/avif" />
+          <source srcSet={cert.imgSrc.replace(/\.(png|jpg)$/i, '.webp')} type="image/webp" />
+          <img
+            src={cert.imgSrc}
+            alt={cert.title}
+            loading="lazy"
+            decoding="async"
+            sizes="(max-width: 1024px) 90vw, 420px"
+            className="h-full w-auto object-contain"
+          />
+        </picture>
       </figure>
 
       <div className="mb-3">

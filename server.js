@@ -67,6 +67,7 @@ const buildIdFilter = (id) => {
 
 app.use(cors());
 app.use(express.json());
+app.disable('x-powered-by');
 app.enable('trust proxy');
 
 app.use((req, res, next) => {
