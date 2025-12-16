@@ -38,9 +38,11 @@ const ProjectCard = ({
           <img
             src={encodeURI(imgSrc)}
             alt={title}
+            width="640"
+            height="640"
             loading="lazy"
             decoding="async"
-            sizes="(max-width: 768px) 100vw, 320px"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 320px"
             className="img-cover"
           />
         </picture>

@@ -5,8 +5,8 @@ import { Helmet } from 'react-helmet-async';
 
 const rawSiteUrl = import.meta.env.VITE_SITE_URL || 'https://dinobajramovic.com';
 const siteUrl = rawSiteUrl.replace(/\/$/, '');
-const pageTitle = 'Dino Bajramovic | Full-stack Web Developer for Modern Websites & Projects';
-const description = 'Portfolio of Dino Bajramovic, a full-stack web developer delivering scalable React and Node.js projects, showcasing work, stack, and contact options for modern, reliable websites.';
+const pageTitle = 'Full-stack Web Developer | Dino Bajramovic Portfolio';
+const description = 'Portfolio of Dino Bajramovic, a full-stack web developer delivering scalable React and Node.js projects, with featured work, tech stack, and clear contact paths.';
 const keywords = [
   'Dino Bajramovic',
   'full-stack developer',
@@ -22,6 +22,7 @@ const keywords = [
 const canonicalUrl = `${siteUrl}/`;
 const previewImage = `${siteUrl}/images/hero-banner.jpg`;
 const searchConsoleVerification = import.meta.env.VITE_GSC_VERIFICATION || '';
+const GA_ID = import.meta.env.VITE_GA_ID || '';
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -102,6 +103,21 @@ const SEO = () => (
 
     {searchConsoleVerification ? (
       <meta name="google-site-verification" content={searchConsoleVerification} />
+    ) : null}
+
+    {GA_ID ? (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}', { page_path: window.location.pathname });
+          `}
+        </script>
+        <noscript>{`<iframe src="https://www.googletagmanager.com/ns.html?id=${GA_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`}</noscript>
+      </>
     ) : null}
 
     <script type="application/ld+json">

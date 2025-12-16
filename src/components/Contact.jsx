@@ -125,8 +125,8 @@ const Contact = () => {
 
         <div className="mb-12 lg:mb-0 lg:flex lg:flex-col">
 
-          <h2 className="headline-2 lg:max-w-[12ch] reveal-up">
-            Contact me for collaboration
+          <h2 className="headline-2 lg:max-w-[16ch] reveal-up">
+            Contact Dino Bajramovic
           </h2>
 
           <p className="text-zinc-400 mt-3 mb-8 max-w-[50ch] lg:max-w-[30ch] reveal-up">

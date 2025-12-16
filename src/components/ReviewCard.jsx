@@ -21,9 +21,11 @@ const ReviewCard = ({ cert }) => {
           <img
             src={baseSrc}
             alt={cert.title}
+            width="960"
+            height="640"
             loading="lazy"
             decoding="async"
-            sizes="(max-width: 1024px) 90vw, 420px"
+            sizes="(max-width: 640px) 100vw, (max-width: 1280px) 420px, 480px"
             className="h-full w-auto object-contain"
           />
         </picture>
