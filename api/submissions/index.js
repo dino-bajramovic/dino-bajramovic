@@ -2,11 +2,15 @@ import { getDb } from '../_db.js';
 
 const COLLECTION = 'submissions';
 
+const ORIGIN = process.env.CORS_ORIGIN || 'https://www.dinobajramovic.com';
+
 export default async function handler(req, res) {
+  res.setHeader('Access-Control-Allow-Origin', ORIGIN);
+  res.setHeader('Vary', 'Origin');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, x-admin-key');
+
   if (req.method === 'OPTIONS') {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, x-admin-key');
     return res.status(200).end();
   }
 
