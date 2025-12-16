@@ -17,6 +17,7 @@ const ADMIN_KEY = process.env.ADMIN_KEY || 'changeme';
 const MONGO_URI = process.env.MONGO_URI;
 const MONGO_DB = process.env.MONGO_DB || 'portfolioDB';
 const COLLECTION = 'submissions';
+const CANONICAL_HOST = (process.env.CANONICAL_HOST || '').toLowerCase();
 
 if (!MONGO_URI) {
   console.warn('MONGO_URI is not set. Please configure it in .env');
@@ -66,6 +67,28 @@ const buildIdFilter = (id) => {
 
 app.use(cors());
 app.use(express.json());
+app.enable('trust proxy');
+
+app.use((req, res, next) => {
+  const hostname = (req.hostname || '').toLowerCase();
+  const originalHost = req.headers.host;
+  const protoHeader = req.get('x-forwarded-proto');
+  const proto = protoHeader || (req.secure ? 'https' : 'http');
+  const isLocal = hostname === 'localhost' || hostname === '127.0.0.1';
+
+  if (!isLocal && proto === 'http' && originalHost) {
+    return res.redirect(301, `https://${originalHost}${req.originalUrl}`);
+  }
+
+  if (!isLocal && CANONICAL_HOST && hostname && hostname !== CANONICAL_HOST) {
+    return res.redirect(301, `https://${CANONICAL_HOST}${req.originalUrl}`);
+  }
+
+  res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  next();
+});
 
 app.get('/api/health', async (_req, res) => {
   try {
@@ -174,13 +197,25 @@ app.put('/api/submissions/:id', requireAdminKey, async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server listening on http://localhost:${PORT}`);
+app.use(express.static(path.join(__dirname, 'dist'), {
+  maxAge: '30d',
+  setHeaders: (res, filePath) => {
+    if (filePath.endsWith('.html')) {
+      res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
+    }
+  }
+}));
+
+// Custom 404 for API and web requests
+app.use((req, res) => {
+  if (req.path.startsWith('/api/')) {
+    return res.status(404).json({ success: false, error: 'Route not found' });
+  }
+
+  const notFoundPage = path.join(__dirname, 'dist', '404.html');
+  res.status(404).sendFile(notFoundPage);
 });
 
-app.use(express.static(path.join(__dirname, 'dist')));
-
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+app.listen(PORT, () => {
+  console.log(`Server listening on http://localhost:${PORT}`);
 });

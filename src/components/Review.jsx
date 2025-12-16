@@ -37,7 +37,7 @@ const certifications = [
     issuer: 'Google',
     year: '2023 - 2025',
     description: 'GDG attendee (2024, 2025) i DevFest 2023 participant - fokus na web, cloud, AI alatima i community best practices.',
-    imgSrc: '/images/Google Dev Fest.png'
+    imgSrc: '/images/Google Dev Fest.jpg'
   },
   {
     title: 'Zira Talent Academy Certification',
@@ -58,14 +58,14 @@ const certifications = [
     issuer: 'NEAR',
     year: '2022',
     description: 'Intro to smart contracts and dApp fundamentals on the NEAR ecosystem.',
-    imgSrc: '/images/Near Balkan - Dino Bajramovic.png'
+    imgSrc: '/images/Near Balkan - Dino Bajramovic.jpg'
   },
   {
     title: 'HP LIFE Data Science Certificate',
     issuer: 'HP LIFE',
     year: '2024',
     description: 'Data literacy, analytics workflows, and practical visualization skills.',
-    imgSrc: '/images/HP Life - Dino Bajramovic.png'
+    imgSrc: '/images/HP Life - Dino Bajramovic.jpg'
   }
 ];
 

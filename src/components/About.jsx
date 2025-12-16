@@ -49,6 +49,8 @@ const About = () => {
               width={45}
               height={45}
               className="ml-auto md:w-[48px] md:h-[48px]"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>

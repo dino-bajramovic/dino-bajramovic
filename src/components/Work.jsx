@@ -14,37 +14,37 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const works = [
   {
-    imgSrc: '/images/project-1.png',
+    imgSrc: '/images/project-1.jpg',
     title: 'Library software project',
     tags: ['CRUD', 'Full-stack', 'Management'],
     projectLink: 'https://github.com/dino-bajramovic/library-software-project'
   },
   {
-    imgSrc: '/images/project-2.png',
+    imgSrc: '/images/project-2.jpg',
     title: 'Real estate project',
     tags: ['Web-tehnologije', 'CRUD', 'Responsive'],
     projectLink: 'https://github.com/dino-bajramovic/nekretnine-projekat-web-tehnologije'
   },
   {
-    imgSrc: '/images/project-3.png',
+    imgSrc: '/images/project-3.jpg',
     title: 'News summarizer AI',
     tags: ['AI', 'API', 'Summarization'],
     projectLink: 'https://github.com/dino-bajramovic/news-summaizer-ai'
   },
   {
-    imgSrc: '/images/project-4.png',
+    imgSrc: '/images/project-4.jpg',
     title: 'Movie project',
     tags: ['React', 'UI', 'Reusable'],
     projectLink: 'https://github.com/dino-bajramovic/react-project'
   },
   {
-    imgSrc: '/images/project-5.png',
+    imgSrc: '/images/project-5.jpg',
     title: 'Marketing campaign management',
     tags: ['CRM', 'Analytics', 'Full-stack'],
     projectLink: 'https://github.com/dino-bajramovic/MarketingCampaignManagementSystem'
   },
   {
-    imgSrc: '/images/project-6.png',
+    imgSrc: '/images/project-6.jpg',
     title: 'MERN project',
     tags: ['MERN', 'Full-stack', 'App'],
     projectLink: 'https://github.com/dino-bajramovic/mern-project'
@@ -71,7 +71,7 @@ const Work = () => {
       <div className="container">
 
         <h2 className="headline-2 mb-8 reveal-up">
-          My portfolio highlights
+          Project work highlights from my stack
         </h2>
 
         <div className="grid gap-x-4 gap-y-5 grid-cols-[repeat(auto-fill,_minmax(280px,_1fr))]">

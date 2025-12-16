@@ -3,10 +3,10 @@
  */
 import { Helmet } from 'react-helmet';
 
-const rawSiteUrl = import.meta.env.VITE_SITE_URL || 'https://dino-bajramovic.com';
+const rawSiteUrl = import.meta.env.VITE_SITE_URL || 'https://dino-bajramovic-3.onrender.com';
 const siteUrl = rawSiteUrl.replace(/\/$/, '');
-const pageTitle = 'Dino Bajramovic | Full-stack Web Developer & Engineer';
-const description = 'Portfolio of Dino Bajramovic, a full-stack web developer delivering modern, performant React and Node.js solutions for the web.';
+const pageTitle = 'Dino Bajramovic | Full-stack Web Developer for Modern Websites & Projects';
+const description = 'Portfolio of Dino Bajramovic, a full-stack web developer delivering scalable React and Node.js projects, showcasing work, stack, and contact options for modern, reliable websites.';
 const keywords = [
   'Dino Bajramovic',
   'full-stack developer',
@@ -14,7 +14,10 @@ const keywords = [
   'React',
   'Node.js',
   'JavaScript',
-  'portfolio'
+  'portfolio projects',
+  'tech stack',
+  'contact',
+  'modern websites'
 ].join(', ');
 const canonicalUrl = `${siteUrl}/`;
 const previewImage = `${siteUrl}/images/hero-banner.jpg`;
@@ -34,6 +37,41 @@ const structuredData = {
     'https://www.instagram.com/dinobajramovic_13/'
   ],
   email: 'mailto:dinobajramovic01@gmail.com'
+};
+
+const organizationStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Dino Bajramovic Web Development',
+  url: canonicalUrl,
+  logo: `${siteUrl}/images/logo.png`,
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      email: 'dinobajramovic01@gmail.com',
+      contactType: 'customer support',
+      availableLanguage: ['en']
+    }
+  ],
+  sameAs: [
+    'https://github.com/dino-bajramovic',
+    'https://www.linkedin.com/in/dino-bajramovic/',
+    'https://x.com/DinoBajramovicc',
+    'https://www.instagram.com/dinobajramovic_13/'
+  ]
+};
+
+const webSiteStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  url: canonicalUrl,
+  name: 'Dino Bajramovic Portfolio',
+  inLanguage: 'en',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `${canonicalUrl}?q={search_term_string}`,
+    'query-input': 'required name=search_term_string'
+  }
 };
 
 const SEO = () => (
@@ -68,6 +106,12 @@ const SEO = () => (
 
     <script type="application/ld+json">
       {JSON.stringify(structuredData)}
+    </script>
+    <script type="application/ld+json">
+      {JSON.stringify(organizationStructuredData)}
+    </script>
+    <script type="application/ld+json">
+      {JSON.stringify(webSiteStructuredData)}
     </script>
   </Helmet>
 );

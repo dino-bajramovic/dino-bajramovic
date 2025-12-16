@@ -4,3 +4,4 @@ Allow: /
 
 # Sitemap location
 Sitemap: https://dino-bajramovic-3.onrender.com/sitemap.xml
+Host: dino-bajramovic-3.onrender.com

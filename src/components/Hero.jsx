@@ -39,9 +39,13 @@ const Hero = () => {
             </div>
           </div>
 
-          <h2 className="headline-1 max-w-[15ch] sm:max-w-[20ch] lg:max-w-[15ch] mt-5 mb-8 lg:mb-10">
-            Building Scalable Modern Websites for the Future
-          </h2>
+          <h1 className="headline-1 max-w-[15ch] sm:max-w-[20ch] lg:max-w-[15ch] mt-5 mb-4 lg:mb-6">
+            Full-stack web developer building scalable projects & modern websites
+          </h1>
+
+          <p className="text-zinc-300 text-lg mb-6 max-w-[40ch]">
+            I design, build, and ship performant React/Node.js work from concept to launch, with a clear path to contact and collaboration.
+          </p>
 
           <div className="flex items-center gap-3">
             <ButtonPrimary
@@ -67,6 +71,10 @@ const Hero = () => {
               height={800}
               alt="Hero illustration for Dino Bajramovic portfolio"
               className="w-full"
+              fetchpriority="high"
+              decoding="async"
+              srcSet="/images/hero-banner.jpg 1x"
+              sizes="(max-width: 1024px) 90vw, 480px"
             />
           </figure>
         </div>

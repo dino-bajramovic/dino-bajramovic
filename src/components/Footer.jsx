@@ -101,6 +101,7 @@ const Footer = () => {
                     <a
                       href={href}
                       target="_blank"
+                      rel="noreferrer noopener"
                       className="block text-sm text-zinc-400 py-1 transition-colors hover:text-zinc-200 reveal-up"
                     >
                       {label}
@@ -124,6 +125,8 @@ const Footer = () => {
               width={48}
               height={48}
               alt="Dino Bajramovic logo"
+              loading="lazy"
+              decoding="async"
             />
           </a>
 

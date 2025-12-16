@@ -15,6 +15,9 @@ const ReviewCard = ({ cert }) => {
           src={cert.imgSrc}
           alt={cert.title}
           loading="lazy"
+          decoding="async"
+          srcSet={`${cert.imgSrc} 1x`}
+          sizes="(max-width: 1024px) 90vw, 420px"
           className="h-full w-auto object-contain"
         />
       </figure>
@@ -32,6 +35,7 @@ const ReviewCard = ({ cert }) => {
         <a
           href={cert.link}
           target="_blank"
+          rel="noreferrer noopener"
           className="text-sm text-sky-400 hover:text-sky-300 underline mt-auto"
         >
           View credential

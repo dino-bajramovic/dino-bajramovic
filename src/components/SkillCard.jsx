@@ -28,6 +28,8 @@ const SkillCard = ({
           width={32}
           height={32}
           alt={label}
+          loading="lazy"
+          decoding="async"
         />
       </figure>
 

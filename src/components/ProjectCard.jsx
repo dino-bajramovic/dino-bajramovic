@@ -24,7 +24,7 @@ const ProjectCard = ({
     <CardWrapper
       href={projectLink || undefined}
       target={projectLink ? '_blank' : undefined}
-      rel={projectLink ? 'noreferrer' : undefined}
+      rel={projectLink ? 'noreferrer noopener' : undefined}
       className={"relative block p-4 rounded-2xl bg-zinc-800 hover:bg-zinc-700/50 active:bg-zinc-700/60 ring-1 ring-inset ring-zinc-50/5 transition-colors " + classes}
       style={style}
     >
@@ -33,7 +33,10 @@ const ProjectCard = ({
         <img
           src={imgSrc}
           alt={title}
-          loading='lazy'
+          loading="lazy"
+          decoding="async"
+          srcSet={`${imgSrc} 1x`}
+          sizes="(max-width: 768px) 100vw, 320px"
           className="img-cover"
         />
       </figure>
