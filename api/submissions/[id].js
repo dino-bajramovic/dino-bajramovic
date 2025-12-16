@@ -38,6 +38,10 @@ export default async function handler(req, res) {
     const col = db.collection(COLLECTION);
     const filter = buildIdFilter(id);
 
+    if (req.method === 'OPTIONS') {
+      return res.status(200).end();
+    }
+
     if (req.method === 'DELETE') {
       const result = await col.deleteOne(filter);
       return res.status(200).json({ success: true, removed: result.deletedCount });
