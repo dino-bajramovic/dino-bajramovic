@@ -116,8 +116,7 @@ const Review = () => {
         </h2>
 
         <div
-          className="overflow-x-auto pb-2 touch-pan-x snap-x snap-mandatory overscroll-x-contain scrollbar-hide lg:overflow-visible lg:snap-none lg:overscroll-x-auto lg:pb-0"
-          style={{ scrollPaddingLeft: '16px', scrollPaddingRight: '16px' }}
+          className="overflow-x-auto px-4 pb-2 touch-pan-x snap-x snap-mandatory overscroll-x-contain scrollbar-hide lg:overflow-visible lg:snap-none lg:overscroll-x-auto lg:px-0 lg:pb-0"
           ref={scrollRef}
         >
           <div className="scrub-slide flex items-stretch gap-3 px-4 min-w-max lg:px-0">

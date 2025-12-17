@@ -12,7 +12,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = process.env.PORT || 4000;
+const DEFAULT_PORT = Number(process.env.PORT) || 4000;
+const isProduction = process.env.NODE_ENV === 'production';
 const ADMIN_KEY = process.env.ADMIN_KEY || 'changeme';
 const MONGO_URI = process.env.MONGO_URI;
 const MONGO_DB = process.env.MONGO_DB || 'portfolioDB';
@@ -217,6 +218,20 @@ app.use((req, res) => {
   res.status(404).sendFile(notFoundPage);
 });
 
-app.listen(PORT, () => {
-  console.log(`Server listening on http://localhost:${PORT}`);
-});
+const startServer = (port) => {
+  const server = app.listen(port, () => {
+    console.log(`Server listening on http://localhost:${port}`);
+  });
+
+  server.on('error', (err) => {
+    if (err.code === 'EADDRINUSE' && !isProduction) {
+      const nextPort = port + 1;
+      console.warn(`Port ${port} in use. Trying ${nextPort}...`);
+      startServer(nextPort);
+    } else {
+      throw err;
+    }
+  });
+};
+
+startServer(DEFAULT_PORT);
