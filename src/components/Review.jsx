@@ -115,6 +115,12 @@ const Review = () => {
           Certifications
         </h2>
 
+        <div className="flex items-center gap-2 text-sm text-zinc-400 mb-3 lg:hidden">
+          <span className="material-symbols-rounded text-base">swipe_left</span>
+          <span>Swipe to view more certifications</span>
+          <span className="material-symbols-rounded text-base">swipe_right</span>
+        </div>
+
         <div
           className="overflow-x-auto px-4 pb-2 touch-auto snap-x snap-mandatory overscroll-x-contain scrollbar-hide lg:overflow-visible lg:snap-none lg:overscroll-x-auto lg:px-0 lg:pb-0"
           ref={scrollRef}
