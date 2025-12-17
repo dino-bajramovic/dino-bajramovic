@@ -3,7 +3,7 @@
  */
 import { Helmet } from 'react-helmet-async';
 
-const rawSiteUrl = import.meta.env.VITE_SITE_URL || (typeof window !== 'undefined' ? window.location.origin : 'https://dinobajramovic.com');
+const rawSiteUrl = import.meta.env.VITE_SITE_URL || 'https://dinobajramovic.com';
 const siteUrl = rawSiteUrl.replace(/\/$/, '');
 const pageTitle = 'Full-stack Web Developer | Dino Bajramovic Portfolio';
 const description = 'Portfolio of Dino Bajramovic, a full-stack web developer delivering scalable React and Node.js projects, with featured work, tech stack, and clear contact paths.';
@@ -20,9 +20,6 @@ const keywords = [
   'modern websites'
 ].join(', ');
 const canonicalUrl = `${siteUrl}/`;
-const currentUrl = typeof window !== 'undefined'
-  ? `${window.location.origin}${window.location.pathname}`
-  : canonicalUrl;
 const previewImage = `${siteUrl}/images/hero-banner.jpg`;
 const searchConsoleVerification = import.meta.env.VITE_GSC_VERIFICATION || '';
 const GA_ID = import.meta.env.VITE_GA_ID || '';
@@ -86,7 +83,7 @@ const SEO = () => (
     <meta name="keywords" content={keywords} />
     <meta name="author" content="Dino Bajramovic" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href={currentUrl} />
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" href={canonicalUrl} hreflang="en" />
     <link rel="alternate" href={canonicalUrl} hreflang="x-default" />
 
