@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SEO meta tags for the portfolio.
  */
 import { Helmet } from 'react-helmet-async';
@@ -45,7 +45,7 @@ const organizationStructuredData = {
   '@type': 'Organization',
   name: 'Dino Bajramovic Web Development',
   url: canonicalUrl,
-  logo: `${siteUrl}/images/logo.png`,
+  logo: `${siteUrl}/images/db-logo.svg`,
   contactPoint: [
     {
       '@type': 'ContactPoint',
@@ -135,3 +135,4 @@ const SEO = () => (
 );
 
 export default SEO;
+

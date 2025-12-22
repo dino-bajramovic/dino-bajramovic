@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @copyright 2025 dino-bajramovic
  * @license Apache-2.0
  */
@@ -44,7 +44,7 @@ const About = () => {
             }
 
             <img
-              src="/images/logo.png"
+              src="/images/db-logo.svg"
               alt="Dino Bajramovic personal logo"
               width={45}
               height={45}
@@ -61,3 +61,4 @@ const About = () => {
 }
 
 export default About
+

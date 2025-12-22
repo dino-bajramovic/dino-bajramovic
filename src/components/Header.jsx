@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @copyright 2025 dino-bajramovic
  * @license Apache-2.0
  */
@@ -29,7 +29,7 @@ const Header = ({ onOpenAdmin }) => {
             className="logo"
           >
             <img
-              src="/images/logo.png"
+              src="/images/db-logo.svg"
               width={48}
               height={48}
               alt="Dino Bajramovic logo"
@@ -78,3 +78,4 @@ const Header = ({ onOpenAdmin }) => {
 }
 
 export default Header
+

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @copyright 2025 dino-bajramovic
  * @license Apache-2.0
  */
@@ -121,7 +121,7 @@ const Footer = () => {
             className="logo reveal-up"
           >
             <img
-              src="/images/logo.png"
+              src="/images/db-logo.svg"
               width={48}
               height={48}
               alt="Dino Bajramovic logo"
@@ -141,3 +141,4 @@ const Footer = () => {
 }
 
 export default Footer
+
